@@ -1,84 +1,49 @@
-# Shopping Cart
-Very Simple Shopping Cart PoC Implementation Written In C# / .Net Core 2
-This is <b>NOT meant for production</b> use as is - you have been warned!
-<br />
+**# Insurance-API**
 
-## Target Frameworks
+**User Story:**
 
-The WebApi and Client targets the following frameworks: 
-	.Net Core 2.1 (and above)
+We want to be able to insure the products that we sell to a customer, so that we get money back in case the product gets lost or damaged before reaching the customers. For that, we need a REST API that is going to be used by the webshop. You're going to get access to our Product Information API:
 
-<br />
+1.	Unzip it onto your machine
+2.	Navigate to the unzipped folder in a terminal
+3.	On the terminal, type dotnet ProductData.Api.dll and hit Enter.
 
-## Solutions
+Your screen should look like as shown below if the API has successfully started:
 
-ShoppingCart.Api	The Web Api (runs locally using in memory database)
-
-ShoppingCart.Client	The API Client (connects to the Web Api above - which naturally needs to be running)
+ ![image](https://user-images.githubusercontent.com/20437478/173346523-c86e0f33-158e-48a8-b7e7-368397bc791c.png)
 
 
-## How to use the server
-Just give it a whirl and all being well it should launch on:
-	https://localhost:44383
+The Products API is Swagger enabled, and you can access it by navigating to http://localhost:5002/ in your browser. In the example the port is 5002.
 
-You may have to accept the installation of a self signed certificate
+Functionality already implemented here:
+There is an existing endpoint that, given the information about the product, calculates the total cost of insurance according to the rules below:
+  - If the product sales price is less than € 500, no insurance required
+  - If the product sales price=> € 500 but < € 2000, insurance cost is € 1000
+  - If the product sales price=> € 2000, insurance cost is €2000
+  - If the type of the product is a smartphone or a laptop, add € 500 more to the insurance cost.
 
-All being well if you navigate to this location in a browser it should open up Swagger (note only tested this on Windows).
-If you want to change the port for development or want to launch a browser automatically then edit the launchSettings.json
+_* Download the current code, so you can continue with the further tasks._
 
+**Task 1 [BUGFIX]:**
+The financial manager reported that when customers buy a laptop that costs less than € 500, insurance is not calculated, while it should be € 500.
 
-Note: Have only implemented "Application/Json" as a content type, you could easily change this to also support XML if you need
+**Task 2 [REFACTORING]:**
+It looks like the already implemented functionality has some quality issues. Refactor that code, but be sure to maintain the same behavior. 
 
+_* Please make sure to include in the documentation about the approach that you chose for the refactoring._
 
-## How to use the client
+**Task 3 [FEATURE 1]:**
+Now we want to calculate the insurance cost for an order and for this, we are going to provide all the products that are in a shopping cart.
 
-Add reference to the client namespace
-```csharp
-using ShoppingCart.Client;
-```
+_* While developing this feature, please document your assumptions and feel free to reach the stakeholders for doubts via Slack._
 
-Setup the client like so:
-```csharp
-var config = new ApiConfig();
-var apiClientAsync = new ApiClientAsync(config);
-```
-The config is as much there for future environmental support, and has a reference to the API Urls.
+**Task 4 [FEATURE 2]:**
+We want to change the logic around the insurance calculation. We received a report from our business analysts that digital cameras are getting lost more than usual. Therefore, if an order has one or more digital cameras, add € 500 to the insured value of the order.
 
+_* While developing this feature, please document your assumptions and feel free to reach the stakeholders for doubts via Slack._
 
-<b>Before using this you need to kick off the server or you'll have a somewhat limited experience...</b>
+**Task 5 [FEATURE 3]:**
+As a part of this story we need to provide the administrators/back office staff with a new endpoint that will allow them to upload surcharge rates per product type. This surcharge will then  need to be added to the overall insurance value for the product type.
+Please be aware that this endpoint is going to be used simultaneously by multiple users.
 
-
-## Get a product list (note there is no pagination implemented)
-
-```csharp
-var response = await apiClientAsync.ProductService.GetProductListAsync();
-```
-
-Where response is a Tuple composed of status (bool) and a Product List
-
-
-## Create empty cart
-
-```csharp
-var response = await apiClientAsync.CartService.CreateCartAsync();
-```
-
-Where response is a Tuple composed of status (bool) and a Cart
-
-
-## Add a product to the cart
-
-```csharp
-var response = await apiClientAsync.CartService.AddProductToCartAsync({product}, {quantity});
-```
-
-Where response is a Tuple composed of status (bool) and a Cart
-
-There are a number of other methods implemented - check out the tests project in that solution.
-
-## Async vs Sync
-Only async methods are available at this time, it would be possible to simply wrap async calls with Wait() if you want to get up and running and have a proper use case for doing so.
-
-Given it is over the old tinterweb async is pretty much the default these days.
-
-
+_* While developing this feature, please document your assumptions and feel free to reach out to the stakeholders for doubts via Slack._
