@@ -6,10 +6,11 @@ using ShoppingCart.Api.Models.Interfaces;
 
 namespace ShoppingCart.Api.Models.Data
 {
-    public sealed class Product : Entity
-    {
-        public string Name { get; set; }
-        public string NamePlural { get; set; }
-        public decimal UnitPrice { get; set; }  
-    }
+   public sealed class Product : Entity
+   {
+      //public int ProductId { get; set; }
+      public string ProductTypeName { get; set; }
+      public string NamePlural { get; set; }
+      public decimal SalesPrice { get; set; }
+   }
 }

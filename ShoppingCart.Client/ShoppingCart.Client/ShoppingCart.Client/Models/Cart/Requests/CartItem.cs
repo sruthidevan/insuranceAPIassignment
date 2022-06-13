@@ -4,7 +4,7 @@ namespace ShoppingCart.Client.Models.Cart.Requests
 {
     public class CartItem
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public int Quantity { get; set; }
     }
 }

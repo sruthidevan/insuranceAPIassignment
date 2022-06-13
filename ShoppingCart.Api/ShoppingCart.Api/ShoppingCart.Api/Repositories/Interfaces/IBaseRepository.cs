@@ -8,7 +8,7 @@ namespace ShoppingCart.Api.Repositories.Interfaces
 {
     public interface IBaseRepository<T> where T : Entity
     {
-        Task<T> FindByIdAsync(Guid id);
+        Task<T> FindByIdAsync(int id);
         Task<List<T>> FetchAllAsync();
     }
 }

@@ -43,7 +43,7 @@ namespace ShoppingCart.Api.Tests
         public async Task CreateNewCartTest()
         {
             var cart = await _cartRepository.CreateShoppingCartAsync(new CartContentsRequestDto());
-            var result = await _dbContext.Carts.AnyAsync(x => x.Id == cart.Id);
+            var result = await _dbContext.Carts.AnyAsync(x => x.ProductId == cart.ProductId);
             Assert.IsTrue(result);
         }
 
@@ -51,7 +51,7 @@ namespace ShoppingCart.Api.Tests
         public async Task FindCartByIdTest()
         {
             var cart = await _cartRepository.CreateShoppingCartAsync(new CartContentsRequestDto());
-            var fetchedCart = await _cartRepository.FindByIdAsync(cart.Id);
+            var fetchedCart = await _cartRepository.FindByIdAsync(cart.ProductId);
             Assert.IsNotNull(fetchedCart);
 
         }

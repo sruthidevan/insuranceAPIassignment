@@ -10,7 +10,7 @@ namespace ShoppingCart.Api.Models.Data
     public abstract class Entity : IEntity
     {
         [Key]
-        public Guid Id { get; set; }
+        public int ProductId { get; set; }
 
         public DateTimeOffset CreatedAt { get; set; }
         public DateTimeOffset UpdatedAt { get; set; }

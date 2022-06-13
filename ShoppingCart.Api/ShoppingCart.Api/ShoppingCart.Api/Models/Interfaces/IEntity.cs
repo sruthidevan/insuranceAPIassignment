@@ -7,6 +7,6 @@ namespace ShoppingCart.Api.Models.Interfaces
 {
     public interface IEntity
     {
-        Guid Id { get; }
+        int ProductId { get; }
     }
 }

@@ -28,7 +28,7 @@ namespace ShoppingCart.Client.Services
             return (true, response.Model);
         }
 
-        public async Task<(bool status, Product product)> GetProductByIdAsync(Guid productId)
+        public async Task<(bool status, Product product)> GetProductByIdAsync(int productId)
         {
             var response = await _httpClient.GetAsync<Product>(_endpoints.Product(productId));
             if (!response.Success)

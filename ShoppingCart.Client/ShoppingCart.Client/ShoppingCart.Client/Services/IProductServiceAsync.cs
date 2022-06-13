@@ -9,6 +9,6 @@ namespace ShoppingCart.Client.Services
     public interface IProductServiceAsync
     {
         Task<(bool status,ProductList productList)> GetProductListAsync();
-        Task<(bool status, Product product)> GetProductByIdAsync(Guid productId);
+        Task<(bool status, Product product)> GetProductByIdAsync(int productId);
     }
 }

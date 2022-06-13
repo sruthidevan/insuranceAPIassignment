@@ -19,7 +19,7 @@ namespace ShoppingCart.Api.Repositories.Implementation
             _dbContext = dbContext;
         }
 
-        public virtual async Task<T> FindByIdAsync(Guid id) => await _dbContext.Set<T>().FirstOrDefaultAsync(x => x.Id == id);
+        public virtual async Task<T> FindByIdAsync(int id) => await _dbContext.Set<T>().FirstOrDefaultAsync(x => x.ProductId == id);
         public virtual async Task<List<T>> FetchAllAsync() => await _dbContext.Set<T>().ToListAsync();
     }
 }

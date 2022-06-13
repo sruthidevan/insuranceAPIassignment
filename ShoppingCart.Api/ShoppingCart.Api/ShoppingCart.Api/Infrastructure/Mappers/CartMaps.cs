@@ -15,7 +15,7 @@ namespace ShoppingCart.Api.Infrastructure.Mappers
         {
             CreateMap<Cart, CartResponseDto>();
             CreateMap<CartItemRequestDto, CartItem>().ForMember(dest => dest.CatalogItemId, opt => opt.MapFrom(src => src.Id));
-            CreateMap<CartItem, CartItemResponseDto>().ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.CatalogItemId));
+            CreateMap<CartItem, CartItemResponseDto>().ForMember(dest => dest.ProductId, opt => opt.MapFrom(src => src.CatalogItemId));
         }
     }
 }

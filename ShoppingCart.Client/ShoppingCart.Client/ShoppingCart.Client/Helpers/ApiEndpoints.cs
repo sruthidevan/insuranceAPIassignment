@@ -19,11 +19,11 @@ namespace ShoppingCart.Client.Helpers
         }
 
         public string Carts => GetUrl("/carts");
-        public string Cart (Guid cartId) => GetUrl($"/carts/{cartId}");
-        public string CartProduct(Guid cartId, Guid productId) => GetUrl($"/carts/{cartId}/products/{productId}");
-        public string AddProductToCart(Guid cartId, Guid productId, int quantity) => GetUrl($"/carts/{cartId}/products/{productId}/add/{quantity}");
-        public string ReduceProductInCart(Guid cartId, Guid productId, int quantity) => GetUrl($"/carts/{cartId}/products/{productId}/remove/{quantity}");
+        public string Cart (int cartId) => GetUrl($"/carts/{cartId}");
+        public string CartProduct(int cartId, int productId) => GetUrl($"/carts/{cartId}/products/{productId}");
+        public string AddProductToCart(int cartId, int productId, int quantity) => GetUrl($"/carts/{cartId}/products/{productId}/add/{quantity}");
+        public string ReduceProductInCart(int cartId, int productId, int quantity) => GetUrl($"/carts/{cartId}/products/{productId}/remove/{quantity}");
         public string Products => GetUrl("/products");
-        public string Product (Guid productId) => GetUrl($"/products/{productId}");
+        public string Product (int productId) => GetUrl($"/products/{productId}");
     }
 }

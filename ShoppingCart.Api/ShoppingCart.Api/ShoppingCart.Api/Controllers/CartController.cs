@@ -60,7 +60,7 @@ namespace ShoppingCart.Api.Controllers
         {
             var cart = await _cartRepository.CreateShoppingCartAsync(cartContents);
             var result = _mapper.Map<CartResponseDto>(cart);
-            return CreatedAtRoute("GetCartByIdAsync", new { cartId = cart.Id }, result);
+            return CreatedAtRoute("GetCartByIdAsync", new { cartId = cart.ProductId }, result);
         }
 
         /// <summary>
@@ -86,9 +86,9 @@ namespace ShoppingCart.Api.Controllers
         /// <response code="404">Cart not found</response>
         [ProducesResponseType(200, Type = typeof(CartResponseDto))]
         [ProducesResponseType(404)]
-        [HttpPost("{cartId:guid}")]
+        [HttpPut("{cartId:int}")]
         public async Task<IActionResult> UpdateCartAsync(
-            Guid cartId,
+            int cartId,
             [FromBody] CartContentsRequestDto cartContents)
         {
             var cart = await _cartRepository.UpdateShoppingCartAsync(cartId, cartContents);
@@ -115,8 +115,8 @@ namespace ShoppingCart.Api.Controllers
         /// <response code="404">Cart not found</response>
         [ProducesResponseType(200, Type = typeof(CartResponseDto))]
         [ProducesResponseType(404)]
-        [HttpGet("{cartId:guid}", Name = "GetCartByIdAsync")]
-        public async Task<IActionResult> GetCartByIdAsync(Guid cartId)
+        [HttpGet("{cartId:int}", Name = "GetCartByIdAsync")]
+        public async Task<IActionResult> GetCartByIdAsync(int cartId)
         {
             var cart = await _cartRepository.FindByIdAsync(cartId);
             if (cart == null)
@@ -142,8 +142,8 @@ namespace ShoppingCart.Api.Controllers
         /// <response code="404">Cart not found</response>
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]
-        [HttpDelete("{cartId:guid}")]
-        public async Task<IActionResult> RemoveCartByIdAsync(Guid cartId)
+        [HttpDelete("{cartId:int}")]
+        public async Task<IActionResult> RemoveCartByIdAsync(int cartId)
         {
             var cart = await _cartRepository.FindByIdAsync(cartId);
             if (cart == null)

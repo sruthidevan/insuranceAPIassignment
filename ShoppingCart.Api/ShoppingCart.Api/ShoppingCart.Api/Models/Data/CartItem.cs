@@ -8,16 +8,17 @@ namespace ShoppingCart.Api.Models.Data
 {
     public class CartItem
     {
-        public Guid CartId { get; set; }
+        public int CartId { get; set; }
         public Cart Cart { get; set; }
 
-        public Guid CatalogItemId { get; set; }
+        public int CatalogItemId { get; set; }
         public Product Product { get; set; }
 
         public int Quantity { get; set; }
 
-        [NotMapped]
-        public decimal UnitPrice { get; set; }
+        public decimal SalesPrice { get; set; }
+
+        public decimal InsuranceValue { get; set; }
 
         [NotMapped]
         public string Name { get; set; }

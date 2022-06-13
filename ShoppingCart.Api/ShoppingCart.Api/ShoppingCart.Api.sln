@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2041
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCart.Api", "ShoppingCart.Api\ShoppingCart.Api.csproj", "{57AD8804-3C9A-4F24-8630-D1DBEB4E6934}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingCart.Api.Tests", "ShoppingCart.Api.Tests\ShoppingCart.Api.Tests.csproj", "{6484DBAF-DAD7-40D2-BCF7-32AAB47B1EB0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCart.Api.Tests", "ShoppingCart.Api.Tests\ShoppingCart.Api.Tests.csproj", "{6484DBAF-DAD7-40D2-BCF7-32AAB47B1EB0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingCart.Client", "..\..\ShoppingCart.Client\ShoppingCart.Client\ShoppingCart.Client\ShoppingCart.Client.csproj", "{3923500B-4D53-40B5-AFAA-652136009F0B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{6484DBAF-DAD7-40D2-BCF7-32AAB47B1EB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6484DBAF-DAD7-40D2-BCF7-32AAB47B1EB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6484DBAF-DAD7-40D2-BCF7-32AAB47B1EB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3923500B-4D53-40B5-AFAA-652136009F0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3923500B-4D53-40B5-AFAA-652136009F0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3923500B-4D53-40B5-AFAA-652136009F0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3923500B-4D53-40B5-AFAA-652136009F0B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

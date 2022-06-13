@@ -43,9 +43,9 @@ namespace ShoppingCart.Api.Controllers
         /// <response code="404">Cart or catalog item not found</response>
         [ProducesResponseType(200, Type = typeof(CartResponseDto))]
         [ProducesResponseType(404)]
-        [HttpDelete("{cartId:guid}/products/{productId:guid}")]
-        public async Task<IActionResult> RemoveShoppingCartItemAsync(Guid cartId,
-            [FromRoute] Guid productId)
+        [HttpDelete("{cartId:int}/products/{productId:int}")]
+        public async Task<IActionResult> RemoveShoppingCartItemAsync(int cartId,
+            [FromRoute] int productId)
         {
             var cart = await _cartRepository.RemoveShoppingCartItemAsync(cartId, productId);
             if (cart == null)
@@ -74,9 +74,9 @@ namespace ShoppingCart.Api.Controllers
         /// <response code="404">Cart or catalog item not found</response>
         [ProducesResponseType(200, Type = typeof(CartResponseDto))]
         [ProducesResponseType(404)]
-        [HttpPost("{cartId:guid}/products/{productId:guid}/add/{quantity:int?}")]
-        public async Task<IActionResult> IncreaseShoppingCartItemAsync(Guid cartId,
-            [FromRoute] Guid productId,
+        [HttpPost("{cartId:int}/products/{productId:int}/add/{quantity:int?}")]
+        public async Task<IActionResult> IncreaseShoppingCartItemAsync(int cartId,
+            [FromRoute] int productId,
             [FromRoute] int quantity = 1)
         {
             var cart = await _cartRepository.IncreaseShoppingCartItemAsync(cartId, productId, quantity);
@@ -109,9 +109,9 @@ namespace ShoppingCart.Api.Controllers
         /// <response code="404">Cart or catalog item not found</response>
         [ProducesResponseType(200, Type = typeof(CartResponseDto))]
         [ProducesResponseType(404)]
-        [HttpPost("{cartId:guid}/products/{productId:guid}/remove/{quantity:int?}")]
-        public async Task<IActionResult> DecreaseShoppingCartItemAsync(Guid cartId,
-            [FromRoute] Guid productId,
+        [HttpPost("{cartId:int}/products/{productId:int}/remove/{quantity:int?}")]
+        public async Task<IActionResult> DecreaseShoppingCartItemAsync(int cartId,
+            [FromRoute] int productId,
             [FromRoute] int quantity = 1)
         {
             var cart = await _cartRepository.DecreaseShoppingCartItemAsync(cartId, productId, quantity);

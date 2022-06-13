@@ -52,17 +52,17 @@ namespace ShoppingCart.Api.Controllers
         /// <remarks>
         /// Sample request:
         ///
-        ///     GET /api/catalog/{guid}
+        ///     GET /api/catalog/{int}
         ///
         /// </remarks>
         /// <param name="id"></param>
         /// <returns>Catalog Item From The Repository</returns>
         /// <response code="200">Returns the Catalog Item from the repository</response>
         /// <response code="404">If the catalog item cannot be found</response>
-        [HttpGet("{id:guid}")]
+        [HttpGet("{id:int}")]
         [ProducesResponseType(200, Type = typeof(ProductResponseDto))]
         [ProducesResponseType(404)]
-        public async Task<IActionResult> GetProductByIdAsync(Guid id)
+        public async Task<IActionResult> GetProductByIdAsync(int id)
         {
             var item = await _productsRepository.FindByIdAsync(id);
 

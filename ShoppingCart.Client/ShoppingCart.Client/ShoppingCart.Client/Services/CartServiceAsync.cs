@@ -11,7 +11,7 @@ namespace ShoppingCart.Client.Services
     {
         private readonly IApiHttpClient _httpClient;
         private readonly ApiEndpoints _endpoints;
-        private Guid _cartId;
+        private int _cartId;
 
         public CartServiceAsync(IApiHttpClient httpClient, 
             ApiConfig config)
