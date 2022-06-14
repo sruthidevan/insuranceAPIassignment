@@ -1,20 +1,18 @@
 using System;
-using System.Collections.Generic;
-using System.Web.Http.Results;
 using System.Threading.Tasks;
-using ShoppingCart.Api.Controllers;
-using ShoppingCart.Api.Models.Dto.Carts;
+using System.Web.Http.Results;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Hosting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
+using ShoppingCart.Api.Controllers;
+using ShoppingCart.Api.Models.Dto.Carts;
 
-namespace ShoppingCart.Api.Tests.Insurance.Tests
+namespace ShoppingCart.Api.Tests
 {
-    public class InsuranceTests
+   public class InsuranceTests
     {
         private readonly ControllerTestFixture _fixture;
 

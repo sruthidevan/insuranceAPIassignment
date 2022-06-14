@@ -1,13 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ShoppingCart.Api.Models.Dto.Carts;
 using Microsoft.AspNetCore.Mvc;
+using ShoppingCart.Api.Models.Dto.Carts;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ShoppingCart.Api.Controllers
 {
-    [ApiController]
+   [ApiController]
     [Route("api/insurances/")]
     public class InsurancesController : ControllerBase
     {
