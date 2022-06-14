@@ -32,8 +32,6 @@ namespace ShoppingCart.Api.Controllers
                 products.Add(cartItemData);
             }
 
-            var hasDigitalCamera = products.Any(p => p.ProductTypeName.Trim().Equals("digital cameras", StringComparison.InvariantCultureIgnoreCase));
-
             var result = new CartResponseDto
             {
                 Products = products
