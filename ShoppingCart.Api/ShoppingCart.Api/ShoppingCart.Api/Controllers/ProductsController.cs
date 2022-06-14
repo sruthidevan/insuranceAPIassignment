@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
+using InsuranceCalculator.Api.Models.Dto.Products;
+using InsuranceCalculator.Api.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using ShoppingCart.Api.Models.Data;
-using ShoppingCart.Api.Models.Dto;
-using ShoppingCart.Api.Models.Dto.Products;
-using ShoppingCart.Api.Models.Interfaces;
-using ShoppingCart.Api.Repositories.Interfaces;
 
-namespace ShoppingCart.Api.Controllers
+namespace InsuranceCalculator.Api.Controllers
 {
     [Route("api/products")]
     [Produces("application/json")]

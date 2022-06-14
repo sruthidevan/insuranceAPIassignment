@@ -1,10 +1,8 @@
-﻿using System;
-using Newtonsoft.Json;
-using ShoppingCart.Api.Models.Dto.Common;
+﻿using Newtonsoft.Json;
 
-namespace ShoppingCart.Api.Models.Dto.Products
+namespace InsuranceCalculator.Api.Models.Dto.Products
 {
-    public sealed class ProductResponseDto : Resource
+    public sealed class ProductResponseDto
     {
         public int ProductId { get; set; }
         [JsonIgnore]

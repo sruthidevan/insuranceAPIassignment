@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using ShoppingCart.Api.Contexts;
-using ShoppingCart.Api.Models.Data;
-using ShoppingCart.Api.Models.Interfaces;
-using ShoppingCart.Api.Repositories.Interfaces;
+﻿using InsuranceCalculator.Api.Contexts;
+using InsuranceCalculator.Api.Models.Data;
+using InsuranceCalculator.Api.Repositories.Interfaces;
 
-namespace ShoppingCart.Api.Repositories.Implementation
+namespace InsuranceCalculator.Api.Repositories.Implementation
 {
     public class CatalogRepository : BaseRepository<Product>, ICatalogRepository
     {

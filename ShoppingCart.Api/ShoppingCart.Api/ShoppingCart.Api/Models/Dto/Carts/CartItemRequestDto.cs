@@ -1,7 +1,6 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace ShoppingCart.Api.Models.Dto.Carts
+namespace InsuranceCalculator.Api.Models.Dto.Carts
 {
     public class CartItemRequestDto
     {

@@ -1,16 +1,18 @@
 using System;
-using Insurance.Api.Controllers;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using InsuranceCalculator.Api.Controllers;
+using InsuranceCalculator.Api.Models.Dto.Carts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Hosting;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
-using Xunit;
 
-namespace Insurance.Tests
+namespace InsuranceCalculator.Api.Tests.Insurance.Tests
 {
-    public class InsuranceTests: IClassFixture<ControllerTestFixture>
+    public class InsuranceTests
     {
         private readonly ControllerTestFixture _fixture;
 
@@ -19,22 +21,25 @@ namespace Insurance.Tests
             _fixture = fixture;
         }
 
-        [Fact]
-        public void CalculateInsurance_GivenSalesPriceBetween500And2000Euros_ShouldAddThousandEurosToInsuranceCost()
+        [TestMethod()]
+        public async Task CalculateInsurance_GivenSalesPriceBetween500And2000Euros_ShouldAddThousandEurosToInsuranceCost()
         {
             const float expectedInsuranceValue = 1000;
 
-            var dto = new HomeController.InsuranceDto
+            var dto = new CartContentsRequestDto()
                       {
-                          ProductId = 1,
+                         Products = new List<CartItemRequestDto>
+                         {
+                         }
                       };
-            var sut = new HomeController();
 
-            var result = sut.CalculateInsurance(dto);
+            var sut = new InsurancesController();
 
-            Assert.Equal(
+            var result = await sut.CalculateInsurance(dto);
+
+            Assert.AreEqual(
                 expected: expectedInsuranceValue,
-                actual: result.InsuranceValue
+                actual: result.
             );
         }
     }
@@ -70,7 +75,7 @@ namespace Insurance.Tests
                         "products/{id:int}",
                         context =>
                         {
-                            int productId = int.Parse((string) context.Request.RouteValues["id"]);
+                            int productId = int.Parse((string) context.Request.RouteValues["id"] ?? string.Empty);
                             var product = new
                                           {
                                               id = productId,

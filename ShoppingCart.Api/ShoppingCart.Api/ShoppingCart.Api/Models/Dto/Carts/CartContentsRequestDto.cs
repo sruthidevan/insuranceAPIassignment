@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ShoppingCart.Api.Models.Dto.Carts
+namespace InsuranceCalculator.Api.Models.Dto.Carts
 {
     public class CartContentsRequestDto
     {

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ShoppingCart.Api.Models.Dto.Carts
+﻿namespace InsuranceCalculator.Api.Models.Dto.Carts
 {
     public class CartItemResponseDto
     {

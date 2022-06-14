@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace ShoppingCart.Api.Models.Dto.Products
+namespace InsuranceCalculator.Api.Models.Dto.Products
 {
     public class ProductModel
     {

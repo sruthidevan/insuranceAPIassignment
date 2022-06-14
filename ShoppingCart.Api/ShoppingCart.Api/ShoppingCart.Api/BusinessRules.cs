@@ -1,11 +1,11 @@
-using Newtonsoft.Json;
-using ShoppingCart.Api.Models.Dto.Carts;
-using ShoppingCart.Api.Models.Dto.Products;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
+using InsuranceCalculator.Api.Models.Dto.Carts;
+using InsuranceCalculator.Api.Models.Dto.Products;
+using Newtonsoft.Json;
 
-namespace InsuranceApi
+namespace InsuranceCalculator.Api
 {
     public static class BusinessRules
     {
@@ -14,12 +14,6 @@ namespace InsuranceApi
         public static async Task<CartItemResponseDto> GetProductAsync(int productId, int quantity)
         {
             HttpClient client = new HttpClient { BaseAddress = new Uri(PRODUCT_API) };
-            // string json = client.GetAsync("/product_types").Result.Content.ReadAsStringAsync().Result;
-            //var collection = JsonConvert.DeserializeObject<dynamic>(json);
-
-            //string productIdJson = client.GetAsync($"/products/{productId:G}").Result.Content.ReadAsStringAsync().Result;
-            //var product = JsonConvert.DeserializeObject<dynamic>(productIdJson);
-
             var productResponse = await client.GetAsync($"products/{productId}");
 
             if (productResponse.IsSuccessStatusCode)
@@ -27,7 +21,7 @@ namespace InsuranceApi
                 var productResponseJson = await productResponse.Content.ReadAsStringAsync();
                 var product = JsonConvert.DeserializeObject<ProductModel>(productResponseJson);
 
-                var productTypeResponse = await client.GetStringAsync($"product_types/{product.ProductTypeId}");
+                var productTypeResponse = await client.GetStringAsync($"product_types/{product?.ProductTypeId}");
                 var productType = JsonConvert.DeserializeObject<ProductTypeModel>(productTypeResponse);
 
                 return new CartItemResponseDto
@@ -45,21 +39,6 @@ namespace InsuranceApi
             {
                 throw new Exception($"Remote server returned status code: {productResponse.StatusCode}");
             }
-
-            //int productTypeId = product?.ProductType;
-            //string productTypeName = null;
-            //bool hasInsurance = false;
-
-            //insurance = new CartItemResponseDto();
-
-            /*for (int i = 0; i < collection?.Count; i++)
-            {
-                if (collection?[i].id == productTypeId && collection[i].canBeInsured == true)
-                {
-                    insurance.ProductTypeName = collection[i].name;
-                    insurance.ProductTypeHasInsurance = true;
-                }
-            }*/
         }
 
         public static void GetSalesPrice(string baseAddress, int productId, ref CartItemResponseDto insurance)
@@ -71,14 +50,14 @@ namespace InsuranceApi
             insurance.SalesPrice = product?.salesPrice;
         }
 
-        public static decimal CalculateProductInsurance(decimal salesPrice, bool hasInsurance, string productTypeName)
+        public static decimal CalculateProductInsurance(decimal salesPrice, bool canBeInsured, string productTypeName)
         {
             var insuranceValue = 0m;
 
             var isLaptop = productTypeName.Trim().Equals("laptops", StringComparison.InvariantCultureIgnoreCase);
             var isSmartPhone = productTypeName.Trim().Equals("smartphones", StringComparison.InvariantCultureIgnoreCase);
 
-            if (hasInsurance)
+            if (canBeInsured)
             {
                 if (salesPrice < 500 && isLaptop)
                 {

@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
-using ShoppingCart.Api.Models.Data;
-using ShoppingCart.Api.Models.Dto;
-using ShoppingCart.Api.Models.Dto.Products;
-using ShoppingCart.Api.Models.Interfaces;
+﻿using AutoMapper;
+using InsuranceCalculator.Api.Models.Data;
+using InsuranceCalculator.Api.Models.Dto.Products;
 
-namespace ShoppingCart.Api.Infrastructure.Mappers
+namespace InsuranceCalculator.Api.Infrastructure.Mappers
 {
     public class ProductMaps : Profile
     {

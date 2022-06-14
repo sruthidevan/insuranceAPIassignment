@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Threading.Tasks;
+﻿using System.Net;
 using Newtonsoft.Json;
 
-namespace ShoppingCart.Api.Models.Dto.Common
+namespace InsuranceCalculator.Api.Models.Dto.Common
 {
     public class StatusResponseDto
     {

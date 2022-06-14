@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ShoppingCart.Api.Repositories.Interfaces;
 
-namespace ShoppingCart.Api.Models.Data
+namespace InsuranceCalculator.Api.Models.Data
 {
     public sealed class Cart : Entity
     {

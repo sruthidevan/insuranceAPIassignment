@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using InsuranceCalculator.Api.Models.Data;
 using Microsoft.EntityFrameworkCore;
-using ShoppingCart.Api.Models.Data;
 
-namespace ShoppingCart.Api.Contexts
+namespace InsuranceCalculator.Api.Contexts
 {
     public class ApiDbContext : DbContext
     {

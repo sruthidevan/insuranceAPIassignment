@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using AutoMapper;
+using InsuranceCalculator.Api.Models.Dto.Carts;
+using InsuranceCalculator.Api.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using ShoppingCart.Api.Models.Data;
-using ShoppingCart.Api.Models.Dto;
-using ShoppingCart.Api.Models.Dto.Carts;
-using ShoppingCart.Api.Models.Dto.Common;
-using ShoppingCart.Api.Repositories.Interfaces;
 
-namespace ShoppingCart.Api.Controllers
+namespace InsuranceCalculator.Api.Controllers
 {
 
     [Route("api/carts")]
@@ -60,7 +54,7 @@ namespace ShoppingCart.Api.Controllers
         {
             var cart = await _cartRepository.CreateShoppingCartAsync(cartContents);
             var result = _mapper.Map<CartResponseDto>(cart);
-            return CreatedAtRoute("GetCartByIdAsync", new { cartId = cart.ProductId }, result);
+            return CreatedAtRoute("GetCartByIdAsync", new { cartId = cart.Id }, result);
         }
 
         /// <summary>

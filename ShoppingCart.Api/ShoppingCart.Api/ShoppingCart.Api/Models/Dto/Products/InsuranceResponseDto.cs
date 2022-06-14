@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace InsuranceApi.Models.Dto
+namespace InsuranceCalculator.Api.Models.Dto.Products
 {
    public class InsuranceResponseDto
    {

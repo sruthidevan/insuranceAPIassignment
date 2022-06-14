@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ShoppingCart.Api.Models.Data;
-using ShoppingCart.Api.Models.Interfaces;
+﻿using InsuranceCalculator.Api.Models.Data;
 
-namespace ShoppingCart.Api.Repositories.Interfaces
+namespace InsuranceCalculator.Api.Repositories.Interfaces
 {
     public interface ICatalogRepository : IBaseRepository<Product>
     {

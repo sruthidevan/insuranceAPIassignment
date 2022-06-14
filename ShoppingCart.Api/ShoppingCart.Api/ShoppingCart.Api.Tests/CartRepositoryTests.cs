@@ -1,15 +1,15 @@
 using System.Threading.Tasks;
 using AutoMapper;
 using AutoMapper.Configuration;
+using InsuranceCalculator.Api.Contexts;
+using InsuranceCalculator.Api.Infrastructure.Mappers;
+using InsuranceCalculator.Api.Models.Dto.Carts;
+using InsuranceCalculator.Api.Repositories.Implementation;
+using InsuranceCalculator.Api.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ShoppingCart.Api.Contexts;
-using ShoppingCart.Api.Infrastructure.Mappers;
-using ShoppingCart.Api.Models.Dto.Carts;
-using ShoppingCart.Api.Repositories.Implementation;
-using ShoppingCart.Api.Repositories.Interfaces;
 
-namespace ShoppingCart.Api.Tests
+namespace InsuranceCalculator.Api.Tests
 {
     [TestClass]
     public class CartRepositoryTests
@@ -43,7 +43,7 @@ namespace ShoppingCart.Api.Tests
         public async Task CreateNewCartTest()
         {
             var cart = await _cartRepository.CreateShoppingCartAsync(new CartContentsRequestDto());
-            var result = await _dbContext.Carts.AnyAsync(x => x.ProductId == cart.ProductId);
+            var result = await _dbContext.Carts.AnyAsync(x => x.Id == cart.Id);
             Assert.IsTrue(result);
         }
 
@@ -51,7 +51,7 @@ namespace ShoppingCart.Api.Tests
         public async Task FindCartByIdTest()
         {
             var cart = await _cartRepository.CreateShoppingCartAsync(new CartContentsRequestDto());
-            var fetchedCart = await _cartRepository.FindByIdAsync(cart.ProductId);
+            var fetchedCart = await _cartRepository.FindByIdAsync(cart.Id);
             Assert.IsNotNull(fetchedCart);
 
         }

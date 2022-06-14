@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json;
-
-namespace ShoppingCart.Api.Models.Dto.Common
+﻿namespace InsuranceCalculator.Api.Models.Dto.Common
 {
     public class UrlResponseDto
     {
@@ -13,7 +11,6 @@ namespace ShoppingCart.Api.Models.Dto.Common
             Href = href;
         }
 
-        [JsonProperty(Order = -99)]
         public string Href { get; }
     }
 }

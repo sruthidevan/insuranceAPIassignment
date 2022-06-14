@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using InsuranceCalculator.Api.Contexts;
+using InsuranceCalculator.Api.Models.Data;
+using InsuranceCalculator.Api.Models.Dto.Carts;
+using InsuranceCalculator.Api.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using ShoppingCart.Api.Models.Data;
-using ShoppingCart.Api.Contexts;
-using ShoppingCart.Api.Models.Dto.Carts;
-using ShoppingCart.Api.Repositories.Interfaces;
 
-namespace ShoppingCart.Api.Repositories.Implementation
+namespace InsuranceCalculator.Api.Repositories.Implementation
 {
     public class CartRepository : BaseRepository<Cart>, ICartRepository
     {
@@ -152,7 +152,7 @@ namespace ShoppingCart.Api.Repositories.Implementation
             var cart = await _dbContext
                 .Carts
                 .Include(e => e.Products)
-                .FirstOrDefaultAsync(x => x.ProductId == id);
+                .FirstOrDefaultAsync(x => x.Id == id);
 
             return await EnrichCart(cart);
             //return cart;

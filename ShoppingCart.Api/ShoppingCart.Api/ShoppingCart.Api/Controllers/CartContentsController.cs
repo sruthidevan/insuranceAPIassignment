@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using AutoMapper;
+using InsuranceCalculator.Api.Models.Dto.Carts;
+using InsuranceCalculator.Api.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using ShoppingCart.Api.Models.Data;
-using ShoppingCart.Api.Models.Dto.Carts;
-using ShoppingCart.Api.Repositories.Interfaces;
 
-namespace ShoppingCart.Api.Controllers
+namespace InsuranceCalculator.Api.Controllers
 {
     /// <summary>
     /// Add some more user friendly ways of manipulating the contents of a cart
